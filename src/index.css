@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* Font Pokemon */
+@font-face {
+  font-family: "PokemonFont"; /* Nama bebas yang akan Anda gunakan */
+  src: url("./assets/fonts/Pokemon Hollow.ttf") format("truetype"); /* Path ke font */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes lightningStrike {
+  0% {
+    opacity: 0.8;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) rotate(-10deg);
+  }
+}
+
+.text-hover-lightning {
+  position: relative;
+  display: inline-block;
+  transition: color 0.2s ease-in-out;
+}
+
+.text-hover-lightning::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -5px;
+  width: 100%;
+  height: 100%;
+  background-image: url("lightning.png"); /* Tambahkan gambar petir transparan */
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1);
+  pointer-events: none;
+  z-index: -1;
+  transition: transform 0.2s ease-in-out;
+}
+
+.text-hover-lightning:hover {
+  color: #ffeb3b; /* Kuning terang */
+}
+
+.text-hover-lightning:hover::after {
+  animation: lightningStrike 0.3s ease-out forwards;
+}
+
+.card-flip {
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.card-flip.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
