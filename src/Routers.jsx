@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import StartPage from './startPage';
+import StartPage from './StartPage';
 import GamePage from './GamePage';
 
 const Routers = () => {
